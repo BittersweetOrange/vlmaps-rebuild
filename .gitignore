@@ -24,3 +24,9 @@ outputs
 dataset/
 *.tar.gz
 *.zip
+
+# --- secrets / credentials (never commit) ---
+.env
+.env.*
+*.key
+*.pem

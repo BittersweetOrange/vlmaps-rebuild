@@ -39,9 +39,9 @@ def find_similar_category_id(class_name, classes_list):
     openai_key = os.environ["OPENAI_KEY"]
     openai.api_key = openai_key
     classes_list_str = ",".join(classes_list)
-    client = openai.OpenAI(api_key=openai_key)
+    client = openai.OpenAI(api_key=openai_key, base_url="https://api.deepseek.com")
     response = client.chat.completions.create(
-        model="gpt-4-turbo",
+        model="deepseek-flash",
         messages=[
             {
                 "role": "user",

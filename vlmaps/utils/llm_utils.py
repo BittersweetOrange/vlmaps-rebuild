@@ -42,9 +42,9 @@ def parse_object_goal_instruction(language_instr):
 
     openai_key = os.environ["OPENAI_KEY"]
     openai.api_key = openai_key
-    client = openai.OpenAI(api_key=openai_key)
+    client = openai.OpenAI(api_key=openai_key, base_url="https://api.deepseek.com")
     response = client.chat.completions.create(
-        model="gpt-4-turbo",
+        model="deepseek-flash",
         messages=[
             {
                 "role": "user",
@@ -279,9 +279,9 @@ def parse_spatial_instruction(language_instr):
     instructions_list = [language_instr]
     results = ""
     for lang in instructions_list:
-        client = openai.OpenAI(api_key=openai_key)
+        client = openai.OpenAI(api_key=openai_key, base_url="https://api.deepseek.com")
         response = client.chat.completions.create(
-            model="gpt-4-turbo",
+            model="deepseek-flash",
             messages=[
                 {"role": "user", "content": "move a bit to the right of the refrigerator"},
                 {"role": "assistant", "content": "robot.move_to_right('refrigerator')"},
